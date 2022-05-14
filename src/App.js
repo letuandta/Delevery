@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom';
+import Login from './Login/Login';
+import Base from './Layout/Base';
+import Introduce from './Component/introduce';
+import Register from './Component/Register';
+import "./app.css"
+import ShipperPage from './Component/ShipperPage';
+import cookies from "react-cookies";
 
-function App() {
+
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Base/>}>
+            <Route path='/' element={<Introduce/>}/>
+            <Route path="/shipper/:id" element= {<ShipperPage/>}/>
+            <Route path="/customer/:id" element= {<ShipperPage/>}/>
+            <Route path="/register-shipper" element= {<Register/>}/>
+            <Route path="/register-customer" element= {<Register/>}/>
+          </Route> 
+            <Route path='/login' element={<Login/>}>
+          </Route>
+        </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
