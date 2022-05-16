@@ -18,12 +18,12 @@ function Login() {
     const loign = async (event) => {
         event.preventDefault();
         
-        let info = await Api.get(endpoints['oauth2_info'])
+        // let info = await Api.get(endpoints['oauth2-info'])
 
-        console.log(info.data)
+        // console.log(info.data)
         let res = await Api.post(endpoints['login'], {
-                "client_id": info.data.client_id,
-                "client_secret": info.data.client_secret,
+                "client_id": "DlqrobEC6U1740BTu0F0YnVcTxjvi4srF51sDgdm",
+                "client_secret": "adDf4a2KUy3N7r80JVNW3HVZbabsDRqKlGCfSuJ4bpnJXZgyDlzcAPIt7WkCuV7kc8g6FkXDInC3KWimHQ9Wcorkx1wskq2s0ld4fPvt01o9WKHdMiZMr0LGc0J7iD8x",
                 "username": username,
                 "password": password,
                 "grant_type": "password"

@@ -1,8 +1,13 @@
 import React from 'react'
+import '../static/CommentCard.css'
 
 const CommentCard = () => {
   return (
-    <div>CommentCard</div>
+      <>
+      <div className='comment-card'>
+
+      </div>
+      </>
   )
 }
 
