@@ -33,6 +33,12 @@ function Header() {
 
     // if(user === null)
     //     
+    const getImage = () => {
+        let image
+        image = user.avatar.slice(0, 22) + "static" + user.avatar.slice(21)
+        return image
+    }
+
 
     return(
         <>
@@ -88,7 +94,7 @@ function Header() {
                             <FontAwesomeIcon icon={faBell} className="menu-icon" style={{color: "gold", marginRight: "20px"}}/>
                         </div>                      
                         <div style={{display: "flex", justifyContent: "space-around", alignItems: "center", marginRight: "10px"}}>
-                            <img src={user.avatar} className="avartar-img"></img>
+                            <img src={getImage()} className="avartar-img"></img>
                             <span><Link to={user.groups[0]==1? `/shipper/${user.id}`:`/customer/${user.id}`}
                                 style={{textDecoration: "none", color: "black"}}
                             >  {user.first_name} {user.last_name}</Link></span>

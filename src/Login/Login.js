@@ -22,8 +22,8 @@ function Login() {
 
         // console.log(info.data)
         let res = await Api.post(endpoints['login'], {
-                "client_id": "rKqaG04qfvojhRdTb5kn4QnurxT8nyU5p0tSHmtz",
-                "client_secret": "zKluZkptMtlXuE9BsotDrKlnHoZF2uSM3OEvSbLt7A03kWkoVSeEsk5iXLj4w8eBfQXJmr1tYqAgRiR1cCrzzpEGzjf99gi5smy1ZVcA5a8XFj55Srw1ChcX0W9Q21BA",
+                "client_id": "3VTAYAPDCJlxpL9EMLvP4mmah3rpTwxUnCjcPkZr",
+                "client_secret": "o0H2EfkxmbIfwOLRV5fCOLIec4sAzevyeJWynprU5JYMCCPkN3GyRtEHRth1R1Q1AbmW6kfhe31M37vJZAqZXQaLM3ppo2BAeVMsTgc9VnCkh6WJXpoeQ4OF1EGdL41P",
                 "username": username,
                 "password": password,
                 "grant_type": "password"

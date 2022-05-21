@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import Login from './Login/Login';
 import Base from './Layout/Base';
 import Introduce from './Component/introduce';
-import "./app.css"
+import "./App.css"
 import ShipperPage from './Component/ShipperPage';
 import CustomerPage from './Component/CustomerPage';
 import CreateOrder from './Component/CreateOrder';

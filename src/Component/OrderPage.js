@@ -6,7 +6,8 @@ import "../static/Product.css"
 
 function OrderPage({status}) {
 
-  console.log(typeof(status))
+  // console.log(status)
+  
   const selectRef = useRef();
   const [order, setOrder] = useState([])
   const [root_order, setRootOrder] = useState([])
