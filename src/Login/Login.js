@@ -22,8 +22,8 @@ function Login() {
 
         // console.log(info.data)
         let res = await Api.post(endpoints['login'], {
-                "client_id": "DlqrobEC6U1740BTu0F0YnVcTxjvi4srF51sDgdm",
-                "client_secret": "adDf4a2KUy3N7r80JVNW3HVZbabsDRqKlGCfSuJ4bpnJXZgyDlzcAPIt7WkCuV7kc8g6FkXDInC3KWimHQ9Wcorkx1wskq2s0ld4fPvt01o9WKHdMiZMr0LGc0J7iD8x",
+                "client_id": "rKqaG04qfvojhRdTb5kn4QnurxT8nyU5p0tSHmtz",
+                "client_secret": "zKluZkptMtlXuE9BsotDrKlnHoZF2uSM3OEvSbLt7A03kWkoVSeEsk5iXLj4w8eBfQXJmr1tYqAgRiR1cCrzzpEGzjf99gi5smy1ZVcA5a8XFj55Srw1ChcX0W9Q21BA",
                 "username": username,
                 "password": password,
                 "grant_type": "password"
@@ -37,18 +37,18 @@ function Login() {
             }
         })
 
-        console.info(user)
+        console.log(user)
         
         cookies.save("user", user.data)
 
-        if(user.data.groups[0] === 1){
+        if(user.data.groups[0] === 2){
             dispatch({
                 "type": "shipper",
                 'payload': user.data
             })
             setUser(`/shipper/${user.data.id}`)
         }
-        else if(user.data.groups[0] === 2){
+        else if(user.data.groups[0] === 1){
             dispatch({
                 "type": "customer",
                 'payload': user.data

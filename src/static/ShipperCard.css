@@ -19,3 +19,7 @@
     height: 170px;
     border: 1px solid black;
 }
+
+.shipper-card-avatar img{
+    width: 100%;
+}

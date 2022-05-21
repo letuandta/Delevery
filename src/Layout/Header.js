@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import "../static/Header.css"
 import DropdownCustom from "../Component/DropdownCustom";
 import DropdownItemCustom from "../Component/DropdownItemCustom";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import cookies from "react-cookies"
 
@@ -13,17 +13,26 @@ function Header() {
     const [dropdown, setDropdown] = useState(false)
     const user = useSelector(state => state.user.user)
     const dispatch = useDispatch()
+    const navigate = useNavigate();
 
     const logout = (e) => {
         e.preventDefault()
 
         cookies.remove("access_token", "/shipper")
         cookies.remove("user", "/shipper")
+        cookies.remove("access_token", "/customer")
+        cookies.remove("user", "/customer")
+        cookies.remove("access_token", "/")
+        cookies.remove("user", "/")
         dispatch({
             "type": "logout",
             "payload": null
         })
+        navigate('/')
     }
+
+    // if(user === null)
+    //     
 
     return(
         <>
@@ -35,7 +44,7 @@ function Header() {
                             <span>Menu</span>
                         </div>
                         <div>
-                            <h1>Logo</h1>
+                            <h1><Link to={'/'} style={{textDecoration: "none", color: "black"}}>Logo</Link></h1>
                         </div>
                     </div>
                     {!user 
@@ -79,8 +88,8 @@ function Header() {
                             <FontAwesomeIcon icon={faBell} className="menu-icon" style={{color: "gold", marginRight: "20px"}}/>
                         </div>                      
                         <div style={{display: "flex", justifyContent: "space-around", alignItems: "center", marginRight: "10px"}}>
-                            <img src={user.avartar} className="avartar-img"></img>
-                            <span><Link to="#"
+                            <img src={user.avatar} className="avartar-img"></img>
+                            <span><Link to={user.groups[0]==1? `/shipper/${user.id}`:`/customer/${user.id}`}
                                 style={{textDecoration: "none", color: "black"}}
                             >  {user.first_name} {user.last_name}</Link></span>
                         </div>

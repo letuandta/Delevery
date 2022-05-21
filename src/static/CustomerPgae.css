@@ -1,4 +1,4 @@
-.shipper-page{
+.customer-page{
     width: 100%;
     height: 1000px;
     /* background-color: white !important; */
@@ -8,23 +8,17 @@
     background: rgba(255, 255, 255, 0.652) !important;
 }
 
-.shipper-page-left{
-    margin-top: 50px;
-    flex: 2;
-}
-
-.shipper-page-center{
+.customer-page-center{
     background: rgba(255, 255, 255, 0.652) !important;
     /* box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%); */
     border-radius: 10px;
     margin-top: 50px;
     margin-left: 15px;
-    /* margin-right: 15px; */
     flex: 6;
     overflow: scroll;
 }
 
-.shipper-page-right{
+.customer-page-option{
     margin-top: 50px;
     flex: 2;
 }

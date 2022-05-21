@@ -1,16 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react'
-import Api, { endpoints } from '../configs/Api';
-import DropdownCustom from './DropdownCustom'
-import DropdownItemCustom from './DropdownItemCustom'
-import "../static/Product.css"
-import { Form } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Api, { endpoints } from '../configs/Api';
+import "../static/Product.css"
 
-const Product = () => {
+function OrderPage({status}) {
+
+  console.log(typeof(status))
   const selectRef = useRef();
   const [order, setOrder] = useState([])
   const [root_order, setRootOrder] = useState([])
   const [address, setAddress] = useState([])
+  const user = useSelector(state => state.user.user)
 
 
   const getItem = (e) => {
@@ -24,11 +25,11 @@ const Product = () => {
 
   useEffect(() => {
     const loadOrder = async () => {
-      let res = await Api.get(endpoints['order-status'](1))
+      let res = await Api.get(endpoints['order-customer'](user.id))
       setOrder(res.data)
       setRootOrder(res.data)
 
-      // console.log(res.data)
+      console.log(res.data)
     }
 
     const loadAddress = async () => {
@@ -46,9 +47,10 @@ const Product = () => {
     // let results = address.filter((a) => a.id == `${id_area}`)
     // return results[0]["name"]
   }
-  
+
 
   return (
+    <>
     <div>
       <div>Address
         <form onSubmit={getItem}>
@@ -59,28 +61,40 @@ const Product = () => {
               })}
             </select>
           </p>
-          <button> Submit form </button>
+          <button type='submit'> Submit form </button>
         </form>
       </div>
       <div className='order-items'>
         {order != [] ? order.map(
           o => {
-            return <>
-            <div className='order-item'>
+            if(o.status == status)
+              return <>
+              <div className='order-item'>
                 <img src={`http://127.0.0.1:8000/static${o.image}`}></img>
-                <span ><strong>Tên đơn hàng:   </strong><Link to={`order/${o.id}/order`}> {o.order_name}</Link></span>
-                <span style={{paddingLeft: "150px"}}><strong>Khu vực: </strong>   {
-                  address.length != 0 ? addressName(o.area) : "loading"
-                }</span>
-            </div>
-            </>
+                  <span ><strong>Tên đơn hàng:   </strong><Link to={o.status == 1 ?`order/${o.id}` : `/customer/:id/order/${o.id}/status_2_3`}> {o.order_name}</Link></span>
+                  <span style={{paddingLeft: "150px"}}><strong>Khu vực: </strong>   {
+                    o.area
+                  }</span>
+              </div>
+              </>
+            else if(status == null)
+            return <>
+              <div className='order-item'>
+                <img src={`http://127.0.0.1:8000/static${o.image}`}></img>
+                  <span ><strong>Tên đơn hàng:   </strong><Link to={o.status == 1 ?`order/${o.id}` : `/customer/:id/order/${o.id}/status_2_3`}> {o.order_name}</Link></span>
+                  <span style={{paddingLeft: "150px"}}><strong>Khu vực: </strong>   {
+                    o.area
+                  }</span>
+              </div>
+              </>
           }
         ): <div>Khong co don hang nao</div>
         }
         
       </div>
     </div>
+    </>
   )
 }
 
-export default Product
+export default OrderPage

@@ -10,7 +10,11 @@ const ShipperCard = () => {
   return (
       <>
       <div className='shipper-card'>
-        <div className='shipper-card-avatar'></div>
+        <div className='shipper-card-avatar'>
+          {user.avatar != null
+          ? <img src={user.avatar}></img>
+          : <img src='/avt.png'></img>}
+        </div>
         <div>
           <span>Shipper: {user.first_name} {user.last_name}</span>
         </div>
@@ -18,10 +22,10 @@ const ShipperCard = () => {
           <span>star</span>
         </div>
         <div>
-          <span>sdt</span>
+          <span>sdt: {user.phone}</span>
         </div>
         <div>
-          <span>doanh thu</span>
+          <span>doanh thu: {user.cash}</span>
         </div>
         <div>
           <span>xem chi tiet</span>
