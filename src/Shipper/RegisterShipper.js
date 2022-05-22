@@ -1,5 +1,6 @@
 import React, { Fragment, useRef, useState } from 'react'
 import { Button, Container, Form, FormText } from "react-bootstrap"
+import { useNavigate } from 'react-router-dom'
 import Api, { endpoints } from '../configs/Api'
 import '../static/Register.css'
 
@@ -16,6 +17,7 @@ const RegisterShipper = () => {
     const [phone, setPhone] = useState('')
     const sex = useRef()
     const [avatar, setAvatar] = useState()
+    const nav = useNavigate()
 
 
     const register = async (e) => {
@@ -45,6 +47,7 @@ const RegisterShipper = () => {
         )
 
         console.log(res.data)
+        nav("/login")
     }
 
 

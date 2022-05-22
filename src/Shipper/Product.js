@@ -41,8 +41,8 @@ const Product = () => {
 
 
   const addressName = (id_area) => {
-    // let results = address.filter((a) => a.id == `${id_area}`)
-    // return results[0]["name"]
+    let results = address.filter((a) => a.id == `${id_area}`)
+    return results[0]["name"]
   }
   
 

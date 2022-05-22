@@ -45,8 +45,8 @@ function OrderPage({status}) {
 
 
   const addressName = (id_area) => {
-    // let results = address.filter((a) => a.id == `${id_area}`)
-    // return results[0]["name"]
+    let results = address.filter((a) => a.id == `${id_area}`)
+    return results[0]["name"]
   }
 
 
@@ -73,9 +73,7 @@ function OrderPage({status}) {
               <div className='order-item'>
                 <img src={`http://127.0.0.1:8000/static${o.image}`}></img>
                   <span ><strong>Tên đơn hàng:   </strong><Link to={o.status == 1 ?`order/${o.id}` : `/customer/:id/order/${o.id}/status_2_3`}> {o.order_name}</Link></span>
-                  <span style={{paddingLeft: "150px"}}><strong>Khu vực: </strong>   {
-                    o.area
-                  }</span>
+                  <span style={{paddingLeft: "150px"}}><strong>Khu vực: {addressName(o.area)}</strong></span>
               </div>
               </>
             else if(status == null)
@@ -83,9 +81,7 @@ function OrderPage({status}) {
               <div className='order-item'>
                 <img src={`http://127.0.0.1:8000/static${o.image}`}></img>
                   <span ><strong>Tên đơn hàng:   </strong><Link to={o.status == 1 ?`order/${o.id}` : `/customer/:id/order/${o.id}/status_2_3`}> {o.order_name}</Link></span>
-                  <span style={{paddingLeft: "150px"}}><strong>Khu vực: </strong>   {
-                    o.area
-                  }</span>
+                  <span style={{paddingLeft: "150px"}}><strong>Khu vực: {addressName(o.area)}</strong></span> 
               </div>
               </>
           }

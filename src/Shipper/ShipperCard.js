@@ -24,16 +24,10 @@ const ShipperCard = () => {
           <span>Shipper: {user.first_name} {user.last_name}</span>
         </div>
         <div>
-          <span>star</span>
-        </div>
-        <div>
           <span>sdt: {user.phone}</span>
         </div>
         <div>
-          <span>doanh thu: {user.cash}</span>
-        </div>
-        <div>
-          <span>xem chi tiet</span>
+          <span>Doanh thu: {user.cash}</span>
         </div>
       </div>
       </>

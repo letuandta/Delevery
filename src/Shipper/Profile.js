@@ -42,7 +42,7 @@ const Profile = () => {
                 </div>
             </div>
             <div className='profile-comment'>
-                <span style={{fontSize: "30px", fontWeight: "bold", color: "red"}}>comment</span>
+                <span style={{fontSize: "30px", fontWeight: "bold", color: "black", paddingLeft:"10px"}}>Comment</span>
                 {comment.map(c => {
                 return <div className='comment-root'>
                     <div style={{display: "flex", marginRight: "10px"}}>
@@ -56,12 +56,12 @@ const Profile = () => {
                                     >{c.customer.first_name} {c.customer.last_name}</Link></span>
                             </div>
                             <div className='comment-star-time'>
-                                    <span style={{color: "gold"}}><em>{c.star} sao</em></span>
-                                    <span style={{paddingLeft: "50px"}}>
+                                    <span style={{color: "gold", fontSize: "20px"}}><em>{c.star} sao</em></span>
+                                    <span style={{paddingLeft: "50px", fontSize:"15px"}}>
                                     <FontAwesomeIcon icon={faClock}/> : 
                                     <em>  {c.updated_date.slice(0, 10)}</em></span>
                             </div>
-                            <div className='comment-content'>
+                            <div className='comment-content' style={{fontSize:"18px"}}>
                                 {c.comment}
                              </div>
                         </div>

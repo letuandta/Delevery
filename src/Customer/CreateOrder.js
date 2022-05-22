@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Button, Container, Form, FormText } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import Api, { endpoints } from '../configs/Api'
 
 function CreateOrder() {
@@ -11,6 +12,7 @@ function CreateOrder() {
     const image = useRef()
     const area = useRef()
 
+    const nav = useNavigate()
     const user = useSelector(state => state.user.user)
 
     useEffect(() => {
@@ -50,6 +52,7 @@ function CreateOrder() {
             )
             if(res.data != null)
                 alert("Tạo thành công")
+                nav("/customer/:id")
             }
   return (
     <>

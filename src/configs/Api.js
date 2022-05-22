@@ -22,7 +22,8 @@ export const endpoints = {
     "order-patch": (order_id) => `/order/${order_id}/`,
     "receive": "/receive/",
     "shipperReceive": (order_id) => `/receive/${order_id}/`,
-    "order-delivering": (user_id) => `/users/${user_id}/ShipperReceiver/`
+    "order-delivering": (user_id) => `/users/${user_id}/ShipperReceiver/`,
+    "cash": (user_id) => `/cash/${user_id}/`
 }
 
 export default axios.create({

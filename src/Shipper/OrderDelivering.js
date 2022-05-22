@@ -20,7 +20,11 @@ const OrderDelivering = ({status}) => {
     }, [])
 
 
-    const setStatus = async (id) => {
+    const setStatus = async (id, price) => {
+        let cash = await Api.put(endpoints['cash'](user.id),{
+            "cash": price
+        })
+
         let res = await Api.patch(endpoints['order-patch'](id),
         {
         
@@ -29,6 +33,7 @@ const OrderDelivering = ({status}) => {
         }
         )
         console.log(res.data)
+
 
         alert("Chọn thành công đã chuyển đơn qua mục đã giao")
         nav("/shipper/:id")
@@ -43,7 +48,7 @@ const OrderDelivering = ({status}) => {
                     return <li style={{marginBottom: "30px"}}>
                         <Link to={`#`}>{o.order.order_name}</Link>
                         <span style={{marginLeft: "30px"}}>   Đơn giá:  {o.price} đồng</span>
-                        {status == 2 && <span className='complete-order'onClick={() => {setStatus(o.order.id)}}>Hoàn Thành</span>}
+                        {status == 2 && <span className='complete-order'onClick={() => {setStatus(o.order.id, o.price)}}>Hoàn Thành</span>}
                     </li>
             })}
         </ul>

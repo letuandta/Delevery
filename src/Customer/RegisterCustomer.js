@@ -1,5 +1,6 @@
 import React, { Fragment, useRef, useState } from 'react'
 import { Button, Container, Form, FormText } from "react-bootstrap"
+import { useNavigate } from 'react-router-dom'
 import Api, { endpoints } from '../configs/Api'
 import '../static/Register.css'
 
@@ -17,7 +18,7 @@ const RegisterCustomer = () => {
     const sex = useRef()
     const [avatar, setAvatar] = useState()
 
-
+    const nav = useNavigate()
     const register = async (e) => {
         e.preventDefault();
 
@@ -43,7 +44,7 @@ const RegisterCustomer = () => {
                     }
                 }
         )
-
+        nav("/login")
         console.log(res.data)
     }
 
