@@ -14,14 +14,15 @@ const Profile = () => {
     useEffect(() => {
         let loadComment = async () => {
             const res = await Api.get(endpoints["comment"](user.id))
-            setComment(res.data)
+            let data = res.data.sort(() => -1)
+            setComment(data)
         }
 
         loadComment()
     }, [])
-    const getImage = () => {
+    const getImage = (img) => {
         let image
-        image = user.avatar.slice(0, 22) + "static" + user.avatar.slice(21)
+        image = img.slice(0, 22) + "static" + img.slice(21)
         return image
     }
 
@@ -32,7 +33,7 @@ const Profile = () => {
                 <div className='profile-info-image'>
 
                     {user.avatar != null
-                    ? <img src={getImage()}></img>
+                    ? <img src={getImage(user.avatar)}></img>
                     : <img src='/avt.png'></img>}
                 
                 </div>
@@ -45,8 +46,8 @@ const Profile = () => {
                 {comment.map(c => {
                 return <div className='comment-root'>
                     <div style={{display: "flex", marginRight: "10px"}}>
-                            {user.avatar != null
-                            ? <img src={c.customer.avatar}></img>
+                            {c.customer.avatar
+                            ? <img src={getImage(c.customer.avatar)}></img>
                             : <img src='/avt.png'></img>}
                         <div style={{display: "flex", marginRight: "10px", flexDirection: "column"}}>
                             <div>
@@ -55,8 +56,8 @@ const Profile = () => {
                                     >{c.customer.first_name} {c.customer.last_name}</Link></span>
                             </div>
                             <div className='comment-star-time'>
-                                    <span>star</span>
-                                    <span style={{float: "right"}}>
+                                    <span style={{color: "gold"}}><em>{c.star} sao</em></span>
+                                    <span style={{paddingLeft: "50px"}}>
                                     <FontAwesomeIcon icon={faClock}/> : 
                                     <em>  {c.updated_date.slice(0, 10)}</em></span>
                             </div>

@@ -5,19 +5,20 @@ import { Route, Routes } from 'react-router-dom';
 import Login from './Login/Login';
 import Base from './Layout/Base';
 import Introduce from './Component/introduce';
-import "./App.css"
-import ShipperPage from './Component/ShipperPage';
-import CustomerPage from './Component/CustomerPage';
-import CreateOrder from './Component/CreateOrder';
-import OrderPage from './Component/OrderPage';
-import RegisterShipper from './Component/RegisterShipper';
-import RegisterCustomer from './Component/RegisterCustomer';
-import Product from './Component/Product';
-import Profile from './Component/Profile';
-import Order from './Component/Order';
-import OrderAutionShipper from './Component/OrderAutionShipper';
-import OrderDetail from './Component/OrderDetail';
-import OrderDelivering from './Component/OrderDelivering';
+import "./app.css"
+import ShipperPage from './Shipper/ShipperPage';
+import CustomerPage from './Customer/CustomerPage';
+import CreateOrder from './Customer/CreateOrder';
+import OrderPage from './Customer/OrderPage';
+import RegisterShipper from './Shipper/RegisterShipper';
+import RegisterCustomer from './Customer/RegisterCustomer';
+import Product from './Shipper/Product';
+import Profile from './Shipper/Profile';
+import Order from './Shipper/Order';
+import OrderAutionShipper from './Shipper/OrderAutionShipper';
+import OrderDetail from './Customer/OrderDetail';
+import OrderDelivering from './Shipper/OrderDelivering';
+import ShipperDetail from './Component/ShipperDetail';
 
 
 const App = () => {
@@ -46,10 +47,10 @@ const App = () => {
             </Route>
             <Route path="/register-shipper" element= {<RegisterShipper/>}/>
             <Route path="/register-customer" element= {<RegisterCustomer/>}/>
+            <Route path='/shipper_profile/:shipperID' element={<ShipperDetail/>}/>
             {/* <Route path='/shipper-profile/:id'/> */}
           </Route> 
-            <Route path='/login' element={<Login/>}>
-          </Route>
+            <Route path='/login' element={<Login/>}></Route>
         </Routes>
     </BrowserRouter>
   )

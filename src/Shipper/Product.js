@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Api, { endpoints } from '../configs/Api';
-import DropdownCustom from './DropdownCustom'
-import DropdownItemCustom from './DropdownItemCustom'
 import "../static/Product.css"
 import { Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';

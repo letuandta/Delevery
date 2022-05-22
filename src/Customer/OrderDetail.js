@@ -79,7 +79,7 @@ const OrderDetail = ({status}) => {
                     <ul>
                         {autionList.map((a, index) => {
                             return <li style={{marginBottom: "20px"}}>
-                            Tên shipper: <Link to="#">{a.shipper_first_name} {a.shipper_last_name}</Link>
+                            Tên shipper: <Link to={`/shipper_profile/${a.shipper}`}>{a.shipper_first_name} {a.shipper_last_name}</Link>
                             <span style={{marginLeft: "30px"}}>Giá đưa ra: {a.price}</span>
                             <span className='choice-shipper' onClick={() => {setStatus(index)}}>chọn shipper này</span>
                         </li>
@@ -90,7 +90,7 @@ const OrderDetail = ({status}) => {
                 <div>
                      <span style={{fontSize: "20px", fontWeight: "bold"}}>Shipper Nhận đơn</span>
                      <ul>{shipper &&<li>
-                            Tên shipper: <Link to="#">{shipper.shipper_first_name} {shipper.shipper_last_name}</Link>
+                            Tên shipper: <Link to={`/shipper_profile/${shipper.shipper}`}>{shipper.shipper_first_name} {shipper.shipper_last_name}</Link>
                             <span style={{marginLeft: "30px"}}>Giá đơn: {shipper.price}</span>
                          </li>
                         }

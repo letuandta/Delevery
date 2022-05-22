@@ -12,6 +12,8 @@ export const endpoints = {
     "address": "/address/",
     "create-order": "/orderdetail/",
     "register": "/users/",
+    "rating": "/rating/",
+    "user": (user_id) => `/users/${user_id}/`,
     "order": (order_id) => `/orderdetail/${order_id}/`,
     "aution": "/aution/",
     "shipper-aution": (shipper_id) => `/users/${shipper_id}/shipper_aution_history/`,
