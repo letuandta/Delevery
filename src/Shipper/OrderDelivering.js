@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import Api, { endpoints } from '../configs/Api'
+import { useDispatch } from "react-redux";
+import cookies from "react-cookies";
 import "../static/OrderDelivering.css"
 
 const OrderDelivering = ({status}) => {
@@ -9,6 +11,7 @@ const OrderDelivering = ({status}) => {
     const [order, setOrder] = useState([])
     const user = useSelector(state => state.user.user)
     const nav = useNavigate()
+    const dispatch = useDispatch()
 
 
     useEffect(() => {
@@ -33,6 +36,25 @@ const OrderDelivering = ({status}) => {
         }
         )
         console.log(res.data)
+
+        let test = await Api.get(endpoints['current-user'], {
+            headers: {
+                'Authorization': `Bearer ${cookies.load("access_token")}`
+            }
+        })
+
+        if(test.data.groups[0] === 2){
+            dispatch({
+                "type": "shipper",
+                'payload': test.data
+            })
+        }
+        else if(test.data.groups[0] === 1){
+            dispatch({
+                "type": "customer",
+                'payload': test.data
+            })
+        }           
 
 
         alert("Chọn thành công đã chuyển đơn qua mục đã giao")
