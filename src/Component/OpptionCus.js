@@ -1,10 +1,11 @@
 import React from 'react'
+import { ListGroup } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import '../static/OpptionCus.css'
 
 const OpptionCus = () => {
   return (
-    <div className='opption-cus'>
+    // <div className='opption-cus'>
         <>
       <div className='comment-card'>
         <div className='opption-item'>
@@ -22,9 +23,11 @@ const OpptionCus = () => {
         <div className='opption-item'>
           <Link to={"/customer/:id/delivered"}>Đơn Đã Giao</Link>
         </div>
+        
       </div>
+      
       </>
-    </div>
+    // </div>
   )
 }
 

@@ -15,7 +15,8 @@
     margin-top: 50px;
     margin-left: 15px;
     flex: 6;
-    overflow: scroll;
+    /* overflow: scroll; */
+    width: 100%;
 }
 
 .customer-page-option{

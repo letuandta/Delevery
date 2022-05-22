@@ -19,6 +19,11 @@ const Profile = () => {
 
         loadComment()
     }, [])
+    const getImage = () => {
+        let image
+        image = user.avatar.slice(0, 22) + "static" + user.avatar.slice(21)
+        return image
+    }
 
     return (
         <>
@@ -27,7 +32,7 @@ const Profile = () => {
                 <div className='profile-info-image'>
 
                     {user.avatar != null
-                    ? <img src={user.avatar}></img>
+                    ? <img src={getImage()}></img>
                     : <img src='/avt.png'></img>}
                 
                 </div>

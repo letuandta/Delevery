@@ -10,8 +10,7 @@ function Introduce() {
                 <div className="banner">
                     <div>
                         <h1>Delivery</h1>
-                        <p>jbcjkbkjbckjckjbkcjqbjcbkajbskjabjcbkjabckjabckjabckjabckjabckjabcckjabckjqjc
-                            ajkcbjkabckjabckjabckjabckjabckjabckjbacjk
+                        <p>Delivery là ứng dụng quản lý đơn hàng cho mọi gia đình, giao hàng tận nơi, lấy hàng tận cửa, đảm bảo uy tín và chất lượng
                         </p>
                         <button>ĐĂNG KÍ NGAY</button>
                     </div>

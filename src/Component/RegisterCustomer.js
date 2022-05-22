@@ -52,7 +52,7 @@ const RegisterCustomer = () => {
     <Fragment>
         <div id='from-register'>
             <Form className='from-register' onSubmit={register}>
-                <FormText className="register-title" style={{fontSize: "40px", margingBottom: "20px", color: "CaptionText"}}>Đăng kí trở thành shipper</FormText>
+                <FormText className="register-title" style={{fontSize: "40px", margingBottom: "20px", color: "CaptionText"}}>Đăng kí trở thành customer</FormText>
                 <div style={{display: "flex"}}>
                     <Form.Group className="mb-3" controlId="formBasicFirstName">
                         <Form.Label>Tên:</Form.Label>

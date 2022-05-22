@@ -21,6 +21,10 @@
     margin: 0 auto;
  }
 
+ .logo img {
+    width: 80px;
+}
+
 
 #main-menu{
     display: flex;

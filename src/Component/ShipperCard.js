@@ -6,13 +6,18 @@ const ShipperCard = () => {
 
   const user = useSelector(state => state.user.user)
 
+  const getImage = () => {
+    let image
+    image = user.avatar.slice(0, 22) + "static" + user.avatar.slice(21)
+    return image
+}
 
   return (
       <>
       <div className='shipper-card'>
         <div className='shipper-card-avatar'>
           {user.avatar != null
-          ? <img src={user.avatar}></img>
+          ? <img src={getImage()}></img>
           : <img src='/avt.png'></img>}
         </div>
         <div>
